@@ -1,37 +1,5 @@
-<script setup lang="ts">
-import { nanoid } from "nanoid";
-
-const navs = [
-  {
-    to: "/",
-    label: "Главная",
-    id: nanoid(),
-  },
-  {
-    to: "#",
-    label: "Не главная",
-    id: nanoid(),
-  },
-];
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <header class="w-full flex items-center justify-center p-8">
-    <router-link
-      v-for="nav in navs"
-      :key="nav.id"
-      :to="nav.to"
-      class="mr-2 last:mr-0"
-      >{{ nav.label }}</router-link
-    >
-  </header>
+  <div>Hello</div>
 </template>
-
-<style lang="scss">
-.nav-header {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-</style>
