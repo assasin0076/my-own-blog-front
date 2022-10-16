@@ -8,8 +8,8 @@ const navs = [
     id: nanoid(),
   },
   {
-    to: "#",
-    label: "Не главная",
+    to: "/stuff",
+    label: "Приколы",
     id: nanoid(),
   },
 ];
@@ -21,7 +21,7 @@ const navs = [
       v-for="nav in navs"
       :key="nav.id"
       :to="nav.to"
-      class="mr-2 last:mr-0"
+      class="mr-2 last:mr-0 hover:text-gray-700 transition-colors"
       >{{ nav.label }}</router-link
     >
   </header>
