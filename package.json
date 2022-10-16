@@ -13,6 +13,7 @@
   "dependencies": {
     "nanoid": "^4.0.0",
     "pinia": "2.0.21",
+    "tippy.js": "^6.3.7",
     "vue": "3.2.38",
     "vue-router": "4.1.5"
   },
