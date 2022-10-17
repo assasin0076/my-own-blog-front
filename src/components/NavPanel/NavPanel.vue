@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { nanoid } from "nanoid";
-import TelegramIcon from "@/components/Icons/TelegramIcon.vue";
+import SlicedHovering from "@/components/SlicedHovering/SlicedHovering.vue";
 
 const navs = [
   {
@@ -25,16 +25,11 @@ const navs = [
           :key="nav.id"
           :to="nav.to"
           class="mr-2 last:mr-0 hover:text-gray-700 transition-colors"
-          >{{ nav.label }}</router-link
         >
+          {{ nav.label }}
+        </router-link>
       </div>
-      <div class="flex absolute right-0">
-        <a
-          class="flex items-center hover:text-gray-700 transition-colors"
-          href="https://telegram.me/KawSamurai"
-          ><TelegramIcon class="h-7 w-7" />@KawSamurai</a
-        >
-      </div>
+      <div class="flex absolute right-0"><sliced-hovering /></div>
     </div>
   </header>
 </template>
