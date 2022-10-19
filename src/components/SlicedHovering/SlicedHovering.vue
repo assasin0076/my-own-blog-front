@@ -1,5 +1,4 @@
 <script setup>
-import TelegramIcon from "@/components/Icons/TelegramIcon.vue";
 import { computed, ref } from "vue";
 
 const isHoveredLeft = ref(false);
@@ -27,13 +26,7 @@ const widthOnHoverRight = computed(() => {
 
 <template>
   <div class="relative overflow-hidden">
-    <a
-      class="flex items-center hover:text-gray-700 transition-colors"
-      href="https://telegram.me/KawSamurai"
-    >
-      <telegram-icon class="h-7 w-7" />
-      @KawSamurai
-    </a>
+    <slot name="main-content"></slot>
     <div
       class="w-1/2 h-full bg-transparent absolute left-0 bottom-0"
       @mouseenter="onHoverLeft"
@@ -47,7 +40,9 @@ const widthOnHoverRight = computed(() => {
       @mouseenter="onHoverLeft"
       @mouseleave="onUnHoverLeft"
     >
-      aaa
+      <div class="skew-x-[20deg]">
+        <slot name="left-slice"></slot>
+      </div>
     </div>
     <div
       class="w-1/2 h-full bg-transparent absolute right-0 bottom-0"
@@ -62,7 +57,9 @@ const widthOnHoverRight = computed(() => {
       @mouseenter="onHoverRight"
       @mouseleave="onUnHoverRight"
     >
-      <div></div>
+      <div class="skew-x-[20deg]">
+        <slot name="right-slice"></slot>
+      </div>
     </div>
   </div>
 </template>

@@ -14,11 +14,6 @@ module.exports = {
     beforeEach: "readonly",
     beforeAll: "readonly",
   },
-  extends: [
-    "plugin:vue/vue3-essential",
-    "eslint:recommended",
-    "@vue/eslint-config-prettier",
-  ],
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "warn",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "warn",
@@ -51,6 +46,12 @@ module.exports = {
     "vue/require-v-for-key": "off",
     "vue/valid-v-for": "off",
   },
+
+  extends: [
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    "@vue/eslint-config-prettier",
+  ],
 
   overrides: [
     {

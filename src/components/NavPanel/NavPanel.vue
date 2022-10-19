@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { nanoid } from "nanoid";
 import SlicedHovering from "@/components/SlicedHovering/SlicedHovering.vue";
+import TelegramIcon from "@/components/Icons/TelegramIcon.vue";
 
 const navs = [
   {
@@ -14,6 +15,10 @@ const navs = [
     id: nanoid(),
   },
 ];
+
+function copyLink() {
+  navigator.clipboard.writeText("KawSamurai");
+}
 </script>
 
 <template>
@@ -29,7 +34,24 @@ const navs = [
           {{ nav.label }}
         </router-link>
       </div>
-      <div class="flex absolute right-0"><sliced-hovering /></div>
+      <div class="flex absolute right-0">
+        <sliced-hovering>
+          <template v-slot:main-content>
+            <div
+              class="flex items-center hover:text-gray-700 transition-colors"
+            >
+              <telegram-icon class="h-7 w-7" />
+              @KawSamurai
+            </div>
+          </template>
+          <template v-slot:left-slice>
+            <a href="https://t.me/KawSamurai">open</a>
+          </template>
+          <template v-slot:right-slice>
+            <button @click="copyLink">copy</button>
+          </template>
+        </sliced-hovering>
+      </div>
     </div>
   </header>
 </template>
