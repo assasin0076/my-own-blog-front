@@ -2,6 +2,7 @@
   <teleport to="#app">
     <div class="absolute right-0 bottom-0 p-8">
       <alert-component
+        class="mb-2 last:mb-0"
         v-for="alert in alertsList"
         :key="alert.id"
         :alert="alert"
