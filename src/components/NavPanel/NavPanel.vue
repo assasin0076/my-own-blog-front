@@ -12,7 +12,7 @@ const navs = [
   },
   {
     to: "/stuff",
-    label: "Работы",
+    label: "Проекты",
     id: nanoid(),
   },
 ];
