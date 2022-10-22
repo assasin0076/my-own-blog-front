@@ -2,6 +2,7 @@
 import { nanoid } from "nanoid";
 import SlicedHovering from "@/components/SlicedHovering/SlicedHovering.vue";
 import TelegramIcon from "@/components/Icons/TelegramIcon.vue";
+import { useAlerts } from "@/composables/AlertComposable";
 
 const navs = [
   {
@@ -16,8 +17,23 @@ const navs = [
   },
 ];
 
+const alertsComposable = useAlerts();
+
 function copyLink() {
-  navigator.clipboard.writeText("KawSamurai");
+  navigator.clipboard
+    .writeText("KawSamurai")
+    .then(() => {
+      alertsComposable.pushAlert({
+        type: "notification",
+        text: "Ссылка успешно скопирована!",
+      });
+    })
+    .catch(() => {
+      alertsComposable.pushAlert({
+        type: "error",
+        text: "Не удалось скопировать...",
+      });
+    });
 }
 </script>
 
