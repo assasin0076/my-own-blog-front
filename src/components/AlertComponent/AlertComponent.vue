@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import alertKaomojies from "../../dictionaries/alertKaomojies";
-import AlertInterface from "../../interfaces/AlertInterface";
+import type AlertInterface from "../../interfaces/AlertInterface";
 import { onMounted } from "vue";
 import { useAlerts } from "@/composables/AlertComposable";
 
