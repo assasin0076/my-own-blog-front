@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { nanoid } from "nanoid";
 import ProjectItem from "@/components/ProjectItem/ProjectItem.vue";
-import ProjectItemInterface from "@/interfaces/ProjectItemInterface";
+import type ProjectItemInterface from "@/interfaces/ProjectItemInterface";
 
 const items: ProjectItemInterface[] = [
   {
