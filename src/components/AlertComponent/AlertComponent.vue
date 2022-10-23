@@ -1,6 +1,7 @@
 <template>
   <div
     class="w-[400px] max-w-[400px] relative bg-transparent border border-black rounded p-2 flex items-center"
+    @mouseenter="resetCloseTimer"
   >
     <div class="mr-2 flex items-center justify-center h-8 w-12 text-xs">
       {{ alertKaomojies[props.alert.type] }}
@@ -20,8 +21,10 @@
 <script setup lang="ts">
 import alertKaomojies from "../../dictionaries/alertKaomojies";
 import type AlertInterface from "../../interfaces/AlertInterface";
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { useAlerts } from "@/composables/AlertComposable";
+
+const timer = ref<any>(null);
 
 interface Props {
   alert: AlertInterface;
@@ -33,10 +36,18 @@ const alertActions = useAlerts();
 function closeAlert() {
   alertActions.removeAlert(props.alert.id);
 }
-
-onMounted(() => {
-  setTimeout(() => {
+function setCloseTimer() {
+  timer.value = setTimeout(() => {
     closeAlert();
   }, 5000);
+}
+
+function resetCloseTimer() {
+  clearTimeout(timer.value);
+  setCloseTimer();
+}
+
+onMounted(() => {
+  setCloseTimer();
 });
 </script>
