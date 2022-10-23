@@ -10,6 +10,7 @@
     </div>
     <div
       class="ml-2 self-start transition-colors hover:text-gray-500 cursor-pointer"
+      @click="closeAlert"
     >
       X
     </div>
@@ -29,9 +30,13 @@ const props = defineProps<Props>();
 
 const alertActions = useAlerts();
 
+function closeAlert() {
+  alertActions.removeAlert(props.alert.id);
+}
+
 onMounted(() => {
   setTimeout(() => {
-    alertActions.removeAlert(props.alert.id);
+    closeAlert();
   }, 5000);
 });
 </script>
