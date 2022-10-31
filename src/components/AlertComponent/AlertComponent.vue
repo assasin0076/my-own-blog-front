@@ -18,17 +18,16 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import alertKaomojies from "../../dictionaries/alertKaomojies";
 import type AlertInterface from "../../interfaces/AlertInterface";
-import { onMounted, ref } from "vue";
-import { useAlerts } from "@/composables/AlertComposable";
-
-const timer = ref<any>(null);
+import { onMounted, ref, defineProps } from "vue";
+import { useAlerts } from "../../composables/AlertComposable";
 
 interface Props {
   alert: AlertInterface;
 }
+const timer = ref<any>(null);
 const props = defineProps<Props>();
 
 const alertActions = useAlerts();

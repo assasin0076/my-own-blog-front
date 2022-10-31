@@ -17,6 +17,7 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "warn",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "warn",
+    "template-curly-spacing": ["error", "never"],
     "vue/max-attributes-per-line": "off",
     "vue/html-closing-bracket-newline": [
       "error",
