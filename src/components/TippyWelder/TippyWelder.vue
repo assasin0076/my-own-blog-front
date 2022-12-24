@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import tippy from "tippy.js";
+import tippy, { Placement as ITippyPlacement } from "tippy.js";
 import {
   computed,
   onBeforeUnmount,
@@ -9,25 +9,9 @@ import {
   useSlots,
 } from "vue";
 
-type TPlacement =
-  | "top"
-  | "top-start"
-  | "top-end"
-  | "right"
-  | "right-start"
-  | "right-end"
-  | "bottom"
-  | "bottom-start"
-  | "bottom-end"
-  | "left"
-  | "left-start"
-  | "left-end"
-  | "auto"
-  | "auto-start"
-  | "auto-end";
 const props = defineProps({
   placement: {
-    type: String as PropType<TPlacement>,
+    type: String as PropType<ITippyPlacement>,
     default: "bottom-start",
   },
   content: {
@@ -40,7 +24,7 @@ const slots = useSlots();
 const content = ref();
 const activator = ref();
 
-let instance = ref<Record<any, any>>();
+let instance = ref();
 
 const popoverContent = computed(() => {
   if (slots.tooltip !== undefined) {
