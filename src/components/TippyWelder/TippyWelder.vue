@@ -1,21 +1,33 @@
-<template>
-  <div class="popper-welder">
-    <div ref="activator" class="popper-activator">
-      <slot name="activator" />
-    </div>
-    <div ref="content" class="popper-content">
-      <slot name="tooltip" />
-    </div>
-  </div>
-</template>
-
-<script setup>
+<script setup lang="ts">
 import tippy from "tippy.js";
-import { computed, onBeforeUnmount, onMounted, ref, useSlots } from "vue";
+import {
+  computed,
+  onBeforeUnmount,
+  onMounted,
+  PropType,
+  ref,
+  useSlots,
+} from "vue";
 
+type TPlacement =
+  | "top"
+  | "top-start"
+  | "top-end"
+  | "right"
+  | "right-start"
+  | "right-end"
+  | "bottom"
+  | "bottom-start"
+  | "bottom-end"
+  | "left"
+  | "left-start"
+  | "left-end"
+  | "auto"
+  | "auto-start"
+  | "auto-end";
 const props = defineProps({
   placement: {
-    type: String,
+    type: String as PropType<TPlacement>,
     default: "bottom-start",
   },
   content: {
@@ -25,10 +37,10 @@ const props = defineProps({
 });
 const slots = useSlots();
 
-const content = ref(null);
-const activator = ref(null);
+const content = ref();
+const activator = ref();
 
-const instance = ref(null);
+let instance = ref<Record<any, any>>();
 
 const popoverContent = computed(() => {
   if (slots.tooltip !== undefined) {
@@ -47,9 +59,21 @@ onMounted(() => {
   });
 });
 onBeforeUnmount(() => {
+  if (!instance.value) return;
   instance.value.destroy();
 });
 </script>
+
+<template>
+  <div class="popper-welder">
+    <div ref="activator" class="popper-activator">
+      <slot name="activator" />
+    </div>
+    <div ref="content" class="popper-content">
+      <slot name="tooltip" />
+    </div>
+  </div>
+</template>
 
 <style lang="scss">
 .tippy-box[data-theme~="popper-welder"] {
