@@ -6,6 +6,7 @@ import TippyWelder from "@/components/TippyWelder/TippyWelder.vue";
 defineProps({
   item: {
     type: Object as PropType<TProjectItem>,
+    default: () => {},
   },
   withPreview: {
     type: Boolean,

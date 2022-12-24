@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import tippy, { Placement as ITippyPlacement } from "tippy.js";
-import {
-  computed,
-  onBeforeUnmount,
-  onMounted,
-  PropType,
-  ref,
-  useSlots,
-} from "vue";
+import tippy from "tippy.js";
+import type { Placement as ITippyPlacement } from "tippy.js";
+import { computed, onBeforeUnmount, onMounted, ref, useSlots } from "vue";
+import type { PropType } from "vue";
 
 const props = defineProps({
   placement: {
