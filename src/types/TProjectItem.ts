@@ -1,4 +1,4 @@
-interface ProjectItemInterface {
+type TProjectItem = {
   id: string;
   label: string;
   ref: string;
@@ -6,6 +6,6 @@ interface ProjectItemInterface {
   tags: string[];
   viewLink: string;
   repoLink: string;
-}
+};
 
-export default ProjectItemInterface;
+export default TProjectItem;

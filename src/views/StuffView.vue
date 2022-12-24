@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { nanoid } from "nanoid";
 import ProjectItem from "@/components/ProjectItem/ProjectItem.vue";
-import type ProjectItemInterface from "@/interfaces/ProjectItemInterface";
+import type ProjectItemInterface from "@/types/TProjectItem";
 
 const items: ProjectItemInterface[] = [
   {
@@ -28,11 +28,7 @@ const items: ProjectItemInterface[] = [
 <template>
   <div class="flex justify-center">
     <div class="w-[800px] flex flex-col">
-      <project-item
-        v-for="item in items"
-        :key="item.id"
-        :item="item"
-      ></project-item>
+      <project-item v-for="item in items" :key="item.id" :item="item" />
     </div>
   </div>
 </template>
