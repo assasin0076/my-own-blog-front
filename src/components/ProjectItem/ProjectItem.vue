@@ -1,10 +1,18 @@
 <script lang="ts" setup>
-import type ProjectItemInterface from "@/interfaces/ProjectItemInterface";
+import type TProjectItem from "@/types/TProjectItem";
+import type { PropType } from "vue";
+import TippyWelder from "@/components/TippyWelder/TippyWelder.vue";
 
-interface Props {
-  item: ProjectItemInterface;
-}
-defineProps<Props>();
+defineProps({
+  item: {
+    type: Object as PropType<TProjectItem>,
+    default: () => {},
+  },
+  withPreview: {
+    type: Boolean,
+    default: false,
+  },
+});
 </script>
 
 <template>
@@ -18,7 +26,22 @@ defineProps<Props>();
       >
         code
       </a>
-      <a class="hover:text-gray-700 transition-colors" :href="item.viewLink">view</a>
+      <tippy-welder v-if="withPreview">
+        <template #activator>
+          <a class="hover:text-gray-700 transition-colors" :href="item.viewLink">view</a>
+        </template>
+        <template #tooltip>
+          <iframe
+            :src="item.viewLink"
+            class="h-[350px] w-[350px] bg-white overflow-scroll border border-gray-100 no-scrollbar"
+          ></iframe>
+        </template>
+      </tippy-welder>
+      <a
+        v-else
+        class="hover:text-gray-700 transition-colors"
+        :href="item.viewLink"
+      >view</a>
     </div>
     <div class="flex mb-2">
       <router-link :to="item.ref">{{ item.label }}</router-link>
@@ -31,7 +54,16 @@ defineProps<Props>();
         {{ tag }}
       </div>
     </div>
-    <div class=""></div>
     <div>{{ item.desc }}</div>
   </div>
 </template>
+
+<style>
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+</style>
