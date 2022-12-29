@@ -1,11 +1,11 @@
-type TProjectItem = {
+export type TRawProjectItem = {
   id: string;
   label: string;
   ref: string;
   desc: string;
-  tags: string[];
+  tags: string;
   viewLink: string;
   repoLink: string;
 };
 
-export default TProjectItem;
+export type TProjectItem = Omit<TRawProjectItem, "tags"> & { tags: string[] };
