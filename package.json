@@ -12,8 +12,9 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^1.0.0-beta.3",
-    "lodash": "^4.17.21",
-    "nanoid": "^4.0.0",
+    "axios": "1.2.2",
+    "lodash": "4.17.21",
+    "nanoid": "4.0.0",
     "pinia": "2.0.21",
     "tippy.js": "^6.3.7",
     "vue": "3.2.38",

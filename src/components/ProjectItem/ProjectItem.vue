@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type TProjectItem from "@/types/TProjectItem";
+import type { TProjectItem } from "@/types/TProjectItem";
 import type { PropType } from "vue";
 import TippyWelder from "@/components/TippyWelder/TippyWelder.vue";
 
