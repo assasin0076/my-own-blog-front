@@ -39,7 +39,12 @@ function copyLink() {
 
 <template>
   <header class="w-full p-4 mb-10 sticky top-0 left-0 bg-white">
-    <div class="flex w-full justify-center items-center relative">
+    <div class="flex h-12 w-full justify-center items-center relative">
+      <img
+        class="absolute left-0 ml-12 w-12 h-12"
+        src="public/logo.png"
+        alt="#"
+      />
       <div class="flex">
         <router-link
           v-for="(nav, i) in navs"
