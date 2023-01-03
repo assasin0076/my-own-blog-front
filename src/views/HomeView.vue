@@ -114,11 +114,11 @@ const displayDate = (rawDate: string) => {
           <div
             v-for="place in workPlaces"
             :key="place.id"
-            class="my-2 py-1 pr-4 w-[240px] flex justify-between items-center"
+            class="my-2 py-1 pr-4 pl-2 w-[240px] flex justify-between items-center"
             :class="
               place.id !== selectedPlace.id
-                ? 'border-b border-black'
-                : 'cursor-pointer border-b border-white hover:border-black'
+                ? 'border-b border-gray-400'
+                : 'cursor-pointer border-b border-white hover:border-gray-400'
             "
             @click="selectPlace(place.id)"
           >
@@ -130,7 +130,7 @@ const displayDate = (rawDate: string) => {
           </div>
         </div>
         <div
-          class="flex p-3 border border-black rounded-md w-full whitespace-pre-wrap"
+          class="flex p-3 border border-gray-400 rounded-md w-full whitespace-pre-wrap"
         >
           {{ selectedPlace.description }}
         </div>
