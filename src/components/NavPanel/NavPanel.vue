@@ -42,7 +42,7 @@ function copyLink() {
     <div class="flex h-12 w-full justify-center items-center relative">
       <img
         class="absolute left-0 ml-12 w-12 h-12"
-        src="public/logo.png"
+        src="/public/logo.png"
         alt="#"
       />
       <div class="flex">
