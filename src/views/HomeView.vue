@@ -99,12 +99,12 @@ const displayDate = (rawDate: string) => {
 <template>
   <div class="w-full flex items-center flex-col">
     <div class="w-[800px]">
-      <div>
+      <div class="mb-10">
         Я Виктор, разработчик фронтенда.
         <br />
         В работе я использую в основном фреймворк Vue.js.
       </div>
-      <div class="mt-8 w-full">
+      <div class="w-full">
         <span class="font-bold">Мой опыт работы:</span>
         {{ yearsLabel(years) }} и
         {{ monthsLabel(months) }}
