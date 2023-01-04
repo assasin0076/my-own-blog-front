@@ -118,9 +118,9 @@ const displayDate = (rawDate: string) => {
             :class="
               place.id !== selectedPlace.id
                 ? 'border-b border-gray-400'
-                : 'cursor-pointer border-b border-white hover:border-gray-400'
+                : 'border-b border-white hover:border-gray-400'
             "
-            @click="selectPlace(place.id)"
+            @mouseenter="selectPlace(place.id)"
           >
             <div>{{ place.name }}</div>
             <div class="flex-col">

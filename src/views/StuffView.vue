@@ -7,8 +7,7 @@ import type { TProjectItem } from "@/types/TProjectItem";
 const items = ref<TProjectItem[]>();
 
 onBeforeMount(async () => {
-  const data = await getStuff();
-  items.value = data;
+  items.value = await getStuff();
 });
 </script>
 
