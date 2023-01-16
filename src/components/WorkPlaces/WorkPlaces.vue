@@ -65,7 +65,7 @@ const workPlaces = ref([
   },
 ]);
 const selectedPlace = computed(
-  () => workPlaces.value.filter((place) => !place.isSelected)[0]
+  () => workPlaces.value.filter((place) => place.isSelected)[0]
 );
 const selectPlace = (id: number) => {
   workPlaces.value = workPlaces.value.map((place) => {
@@ -97,34 +97,46 @@ const displayDate = (rawDate: string) => {
 </script>
 
 <template>
-  <div class="w-full">
+  <div class="md:mb-10">
     <span class="font-bold">Мой опыт работы:</span>
     {{ yearsLabel(years) }} и
     {{ monthsLabel(months) }}
   </div>
-  <div class="my-4 flex min-h-[400px]">
-    <div>
+  <div class="my-4 flex min-h-[400px] md:flex-col">
+    <div class="md:flex">
       <div
         v-for="place in workPlaces"
         :key="place.id"
-        class="my-2 py-1 pr-4 pl-2 w-[240px] flex justify-between items-center"
+        class="my-2 py-1 pr-4 pl-2 w-[240px] md:w-auto md:min-w-150px flex justify-between items-center md:py-4 md:border-0"
         :class="
-          place.id !== selectedPlace.id
+          place.id === selectedPlace.id
             ? 'border-b border-gray-400'
             : 'border-b border-white hover:border-gray-400'
         "
         @mouseenter="selectPlace(place.id)"
       >
-        <div>{{ place.name }}</div>
-        <div class="flex-col">
-          <div class="float-right">{{ displayDate(place.startAt) }} —</div>
-          <div class="float-right">{{ displayDate(place.endAt) }}</div>
+        <div
+          class="flex"
+          :class="place.id === selectedPlace.id ? '' : 'mr-[15px]'"
+        >
+          {{ place.name }}
+        </div>
+        <div class="flex-col text-right md:hidden">
+          {{ displayDate(place.startAt) }} —<br />
+          {{ displayDate(place.endAt) }}
+        </div>
+        <div v-if="place.id === selectedPlace.id" class="ml-2 hidden md:block">
+          •
         </div>
       </div>
     </div>
     <div
-      class="flex p-3 border border-gray-400 rounded-md w-full whitespace-pre-wrap"
+      class="flex p-3 border border-gray-400 rounded-md w-full whitespace-pre-wrap flex-col"
     >
+      <div class="hidden md:block ml-auto mb-4 text-right">
+        {{ displayDate(selectedPlace.startAt) }} — <br />
+        {{ displayDate(selectedPlace.endAt) }}
+      </div>
       {{ selectedPlace.description }}
     </div>
   </div>
