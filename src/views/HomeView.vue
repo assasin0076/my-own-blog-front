@@ -5,11 +5,10 @@ import WorkPlaces from "@/components/WorkPlaces/WorkPlaces.vue";
 <template>
   <div class="w-full flex items-center flex-col">
     <div class="max-w-[800px] md:p-4">
-      <div class="mb-10">
-        Я Виктор, разработчик фронтенда.
-        <br />
-        В работе я использую в основном фреймворк Vue.js.
-      </div>
+      <section class="mb-10">
+        <p>Я Виктор, разработчик фронтенда.</p>
+        <p>В работе я использую в основном фреймворк Vue.js.</p>
+      </section>
       <work-places />
     </div>
   </div>

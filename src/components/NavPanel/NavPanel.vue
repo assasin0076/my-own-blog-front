@@ -39,23 +39,25 @@ function copyLink() {
 
 <template>
   <header class="w-full p-4 mb-10 sticky top-0 left-0 bg-white">
-    <div class="flex h-12 w-full justify-center items-center relative">
-      <img
-        class="absolute left-0 ml-12 w-12 h-12"
-        src="/public/logo.png"
-        alt="#"
-      />
-      <div class="flex">
-        <router-link
+    <nav class="flex h-12 w-full justify-center items-center relative">
+      <router-link to="/" class="absolute left-0 ml-12 w-12 h-12">
+        <img class="w-12 h-12" src="/public/logo.png" alt="#" />
+      </router-link>
+      <ul class="flex">
+        <li
           v-for="(nav, i) in navs"
           :key="nav.id"
-          :to="nav.to"
           class="mr-2 last:mr-0 hover:text-gray-700 transition-colors flex"
         >
-          {{ nav.label }}
-          <div v-if="i < navs.length - 1" class="ml-2">|</div>
-        </router-link>
-      </div>
+          <router-link
+            :to="nav.to"
+            class="mr-2 last:mr-0 hover:text-gray-700 transition-colors flex"
+          >
+            {{ nav.label }}
+            <span v-if="i < navs.length - 1" class="ml-2">|</span>
+          </router-link>
+        </li>
+      </ul>
       <div class="flex absolute right-0">
         <sliced-hovering>
           <template v-slot:main-content>
@@ -74,6 +76,6 @@ function copyLink() {
           </template>
         </sliced-hovering>
       </div>
-    </div>
+    </nav>
   </header>
 </template>
