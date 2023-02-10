@@ -116,7 +116,7 @@ const displayDate = (rawDate: string) => {
     {{ yearsLabel(years) }} и
     {{ monthsLabel(months) }}
   </div>
-  <div class="my-4 flex min-h-[400px] md:flex-col">
+  <div class="my-4 flex md:flex-col">
     <div class="md:flex">
       <div
         v-for="place in workPlaces"
@@ -145,7 +145,7 @@ const displayDate = (rawDate: string) => {
       </div>
     </div>
     <div
-      class="flex p-3 border border-gray-400 rounded-md w-full whitespace-pre-wrap flex-col leading-5"
+      class="flex p-3 border border-gray-400 rounded-md w-full whitespace-pre-wrap flex-col leading-5 h-[400px] overflow-y-auto"
     >
       <p class="hidden md:block sm:text-start mb-4 text-right">
         {{ displayDate(selectedPlace.startAt) }} — <br />{{
