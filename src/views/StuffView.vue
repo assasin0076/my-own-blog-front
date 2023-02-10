@@ -12,7 +12,7 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <div class="flex justify-center">
+  <div class="flex justify-center py-4 px-5">
     <div class="w-[800px] flex flex-col">
       <project-item v-for="item in items" :key="item.id" :item="item" />
     </div>

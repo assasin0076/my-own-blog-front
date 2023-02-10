@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-[400px] max-w-[400px] relative bg-transparent border border-black rounded p-2 flex items-center"
+    class="w-[400px] max-w-[400px] relative bg-transparent border border-black rounded p-2 flex items-center bg-white"
     @mouseenter="resetCloseTimer"
   >
     <div class="mr-2 flex items-center justify-center h-8 w-12 text-xs">

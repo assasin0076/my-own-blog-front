@@ -72,7 +72,7 @@ onMounted(() => {
     <transition-group
       tag="div"
       name="alert"
-      class="fixed right-0 bottom-0 p-8 alerts-list"
+      class="fixed right-0 bottom-0 p-8 alerts-list z-20"
       mode="out-in"
     >
       <alert-component

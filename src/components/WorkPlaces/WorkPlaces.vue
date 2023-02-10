@@ -144,10 +144,15 @@ const displayDate = (rawDate: string) => {
         </div>
       </div>
     </div>
-    <p
-      class="flex p-3 border border-gray-400 rounded-md w-full whitespace-pre-wrap flex-col"
+    <div
+      class="flex p-3 border border-gray-400 rounded-md w-full whitespace-pre-wrap flex-col leading-5"
     >
-      {{ selectedPlace.description }}
-    </p>
+      <p class="hidden md:block sm:text-start mb-4 text-right">
+        {{ displayDate(selectedPlace.startAt) }} — <br />{{
+          displayDate(selectedPlace.endAt)
+        }}
+      </p>
+      <p>{{ selectedPlace.description }}</p>
+    </div>
   </div>
 </template>

@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 import SlicedHovering from "@/components/SlicedHovering/SlicedHovering.vue";
 import TelegramIcon from "@/components/Icons/TelegramIcon.vue";
 import { useAlerts } from "@/composables/AlertComposable";
+import { ref } from "vue";
 
 const navs = [
   {
@@ -35,10 +36,12 @@ function copyLink() {
       });
     });
 }
+
+const isMobileMenuActive = ref(false);
 </script>
 
 <template>
-  <header class="w-full p-4 mb-10 sticky top-0 left-0 bg-white">
+  <header class="sm:hidden w-full p-4 mb-10 sticky top-0 left-0 bg-white">
     <nav class="flex h-12 w-full justify-center items-center relative">
       <router-link to="/" class="absolute left-0 ml-12 w-12 h-12">
         <img class="w-12 h-12" src="/public/logo.png" alt="#" />
@@ -78,4 +81,39 @@ function copyLink() {
       </div>
     </nav>
   </header>
+  <span
+    @click="isMobileMenuActive = true"
+    class="hidden sm:flex fixed bottom-12 right-12 border border-gray-700 leading-none flex items-center justify-center rounded-full bg-white w-10 h-10"
+  >
+    O
+  </span>
+  <div
+    v-if="isMobileMenuActive"
+    class="fixed w-full h-full z-10 p-4 pb-10 bg-white"
+  >
+    <button
+      @click="isMobileMenuActive = false"
+      class="absolute top-0 right-0 h-14 w-14 text-2xl"
+    >
+      ⓧ
+    </button>
+    <nav class="mx-auto flex flex-col items-center h-full">
+      <router-link to="/" class="mb-5" @click="isMobileMenuActive = false">
+        <img class="w-12 h-12" src="/public/logo.png" alt="#" />
+      </router-link>
+      <ul class="py-5 border-y border-gray-700 mb-10 min-w-[200px] mb-auto">
+        <li
+          v-for="nav in navs"
+          :key="nav.id"
+          class="mb-2 last:mb-0 hover:text-gray-700 transition-colors text-center"
+          @click="isMobileMenuActive = false"
+        >
+          <router-link :to="nav.to">
+            {{ nav.label }}
+          </router-link>
+        </li>
+      </ul>
+      <a href="https://t.me/KawSamurai">@KawSamurai</a>
+    </nav>
+  </div>
 </template>
