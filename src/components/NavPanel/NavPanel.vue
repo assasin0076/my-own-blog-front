@@ -47,18 +47,14 @@ const isMobileMenuActive = ref(false);
         <img class="w-12 h-12" src="/public/logo.png" alt="#" />
       </router-link>
       <ul class="flex">
-        <li
-          v-for="(nav, i) in navs"
-          :key="nav.id"
-          class="mr-2 last:mr-0 hover:text-gray-700 transition-colors flex"
-        >
+        <li v-for="(nav, i) in navs" :key="nav.id" class="mr-2 last:mr-0 flex">
           <router-link
             :to="nav.to"
-            class="mr-2 last:mr-0 hover:text-gray-700 transition-colors flex"
+            class="hover:text-gray-700 hover:scale-105 duration-300 transition flex"
           >
             {{ nav.label }}
-            <span v-if="i < navs.length - 1" class="ml-2">|</span>
           </router-link>
+          <span v-if="i < navs.length - 1" class="ml-2">|</span>
         </li>
       </ul>
       <div class="flex absolute right-0">
