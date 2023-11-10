@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 
-const startProgrammingDate = new Date("2021-04-01");
+const startProgrammingDate = new Date("2020-08-01");
 const todayDate = new Date();
 const monthsDifference =
   todayDate.getMonth() -
@@ -60,7 +60,7 @@ const workPlaces = ref([
       "- Занимался интеграцией бекенда при помощи Rest API.\n" +
       "\n" +
       "- Участвовал в разработке node приложения для генерации pdf документов по шаблону из json данных.",
-    startAt: "2021-07",
+    startAt: "2020-08",
     endAt: "2022-10",
   },
   {
