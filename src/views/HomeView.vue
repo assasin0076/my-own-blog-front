@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import WorkPlaces from "@/components/WorkPlaces/WorkPlaces.vue";
+import WorkPlaces from "@/componennts/WorkPlaces/WorkPlaces.vue";
 </script>
 
 <template>
