@@ -1,4 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from "vue";
+
+const isSucking = ref(false);
+
+const toggleImage = () => {
+  isSucking.value = !isSucking.value;
+};
+</script>
 
 <template>
   <div class="w-full flex flex-col">
@@ -9,6 +17,7 @@
       <div class="flex gap-96">
         <button
           class="flex justify-center items-center space-x-1 bg-red-500 text-blue-900 px-2 py-2 rounded"
+          @click="toggleImage"
         >
           <span class="text-9xl">СОСАТЬ</span>
           <span class="text-9xl"> > </span>
@@ -16,7 +25,11 @@
         <div>
           <img
             class="w-[800px] h-[800px]"
-            src="https://99px.ru/sstorage/86/2016/09/image_860109161755237582418.gif"
+            :src="
+              isSucking
+                ? '/src/assets/img/slider_img2.jpg'
+                : '/src/assets/img/slider_img1.gif'
+            "
             alt="#"
           />
         </div>
