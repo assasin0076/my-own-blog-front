@@ -16,7 +16,7 @@ const toggleNotSuckingImage = () => {
 </script>
 
 <template>
-  <div class="flex justify-center items-center">
+  <div class="flex justify-center items-center mx-4">
     <div class="flex gap-96">
       <button
         class="flex justify-center items-center space-x-1 bg-red-500 text-blue-900 px-2 py-2 rounded-full"
