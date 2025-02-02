@@ -2,9 +2,16 @@
 import { ref } from "vue";
 
 const isSucking = ref(false);
+const isNotSucking = ref(false);
 
 const toggleImage = () => {
   isSucking.value = !isSucking.value;
+  isNotSucking.value = false; // Сброс состояния для кнопки "НЕ СОСАТЬ"
+};
+
+const toggleNotSuckingImage = () => {
+  isNotSucking.value = !isNotSucking.value;
+  isSucking.value = false; // Сброс состояния для кнопки "СОСАТЬ"
 };
 </script>
 
@@ -28,6 +35,8 @@ const toggleImage = () => {
             :src="
               isSucking
                 ? '/src/assets/img/slider_img2.jpg'
+                : isNotSucking
+                ? '/src/assets/img/slider_img3.jpg'
                 : '/src/assets/img/slider_img1.gif'
             "
             alt="#"
@@ -35,6 +44,7 @@ const toggleImage = () => {
         </div>
         <button
           class="flex justify-center items-center space-x-1 bg-red-500 text-blue-900 px-2 py-2 rounded"
+          @click="toggleNotSuckingImage"
         >
           <span class="text-9xl"> &lt; </span>
           <span class="text-9xl">НЕ СОСАТЬ</span>
