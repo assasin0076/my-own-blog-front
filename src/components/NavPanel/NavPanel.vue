@@ -5,7 +5,7 @@ import TelegramIcon from "@/components/Icons/TelegramIcon.vue";
 import { useAlerts } from "@/composables/AlertComposable";
 import { ref } from "vue";
 
-const navs = [
+const navs = ref([
   {
     to: "/",
     label: "Главная",
@@ -21,7 +21,7 @@ const navs = [
     label: "Мемчики",
     id: nanoid(),
   },
-];
+]);
 
 const alertsComposable = useAlerts();
 
