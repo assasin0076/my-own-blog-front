@@ -1,8 +1,7 @@
 import axios, { AxiosError } from "axios";
 
 const api = axios.create({
-  baseURL: "https://api.storyblok.com/v2/cdn/stories",
-  params: { token: "emLnLQQC02QTh47y2SA6LAtt", version: "published", cv: "" },
+  baseURL: import.meta.env.VITE_API_URL,
   timeout: 15000,
 });
 api.interceptors.request.use(

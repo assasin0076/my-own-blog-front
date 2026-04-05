@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, type Ref, ref } from "vue";
+import { useJobsStore } from "@/store/jobsStore";
+import { storeToRefs } from "pinia";
+import type { TJob } from "@/types/TJob";
 
 const startProgrammingDate = new Date("2020-08-01");
 const todayDate = new Date();
@@ -36,57 +39,16 @@ const monthsLabel = (monthsCount: number) => {
   return `${monthsCount} месяцев`;
 };
 
-const workPlaces = ref([
-  {
-    id: 1,
-    isSelected: true,
-    name: "nLogic",
-    position: "Frontend-разработчик",
-    description:
-      "Продуктовая компания.\n" +
-      "Разрабатывал 1 продукт и еще 2 поддерживал.\n" +
-      "Работал в команде фронтов из 5 человек, так же общался с дизайнерами и бекенд разработчиками. Взаимодействие строились по SCRUM с дейли митингами в рамках отдела, еженедельными спринтами и еженедельными встречами со свободным посещением.\n" +
-      "Наши проекты представляли собой универсальные системы автоматизации работы с документами, подходящие множеству известных компаний\n" +
-      "Кодовая база изначальна была на vue2+vuex на options api, затем в результате рефакторинга переписана на vue3+pinia на composition api.\n" +
-      "\n" +
-      "В процессе работы я:\n" +
-      "\n" +
-      "- Участвовал в разработке сложной системы управления canvas на классах js.\n" +
-      "\n" +
-      "- Писал unit и e2e тесты.\n" +
-      "\n" +
-      "- Разрабатывал компоненты и страницы на vue2/3 с composition api.\n" +
-      "\n" +
-      "- Занимался интеграцией бекенда при помощи Rest API.\n" +
-      "\n" +
-      "- Участвовал в разработке node приложения для генерации pdf документов по шаблону из json данных.",
-    startAt: "2021-07",
-    endAt: "2022-10",
-  },
-  {
-    id: 2,
-    isSelected: false,
-    name: "Стартап",
-    position: "Frontend-разработчик",
-    description:
-      "Проектная работа.\n" +
-      "Работал в команде из 5 человек ( дизайнер, 2 фронта, бекендер, менеджер )\n" +
-      "Разрабатывал компоненты и страницы на vue. Завершили 1 проект ( интернет магазин ) , так же учавствовал в разработке социальной сети.\n" +
-      "Поработал с vue-router, nuxt, webpack.",
+const jobsStore = useJobsStore();
+const { jobs: workPlaces, selectedId } = storeToRefs(jobsStore);
 
-    startAt: "2020-08",
-    endAt: "2021-07",
-  },
-]);
-const selectedPlace = computed(
-  () => workPlaces.value.filter((place) => place.isSelected)[0]
-);
 const selectPlace = (id: number) => {
-  workPlaces.value = workPlaces.value.map((place) => {
-    if (place.id === id) return { ...place, isSelected: true };
-    return { ...place, isSelected: false };
-  });
+  selectedId.value = id;
 };
+const selectedPlace = computed(
+  () => workPlaces.value.filter((place) => place.id === selectedId.value)[0]
+);
+
 const displayDate = (rawDate: string) => {
   const months = {
     "01": "Январь",
@@ -123,36 +85,33 @@ const displayDate = (rawDate: string) => {
         :key="place.id"
         class="my-2 py-1 pr-4 pl-2 w-[240px] md:w-auto md:min-w-150px flex justify-between items-center md:py-4 md:border-0"
         :class="
-          place.id === selectedPlace.id
+          place.id === selectedId
             ? 'border-b border-gray-400'
             : 'border-b border-white hover:border-gray-400'
         "
         @mouseenter="selectPlace(place.id)"
       >
-        <div
-          class="flex"
-          :class="place.id === selectedPlace.id ? '' : 'mr-[15px]'"
-        >
-          {{ place.name }}
+        <div class="flex" :class="place.id === selectedId ? '' : 'mr-[15px]'">
+          {{ place.companyName }}
         </div>
         <div class="flex-col text-right md:hidden">
           {{ displayDate(place.startAt) }} —<br />
           {{ displayDate(place.endAt) }}
         </div>
-        <div v-if="place.id === selectedPlace.id" class="ml-2 hidden md:block">
-          •
-        </div>
+        <div v-if="place.id === selectedId" class="ml-2 hidden md:block">•</div>
       </div>
     </div>
     <div
       class="flex p-3 border border-gray-400 rounded-md w-full whitespace-pre-wrap flex-col leading-5 h-[400px] overflow-y-auto"
     >
-      <p class="hidden md:block sm:text-start mb-4 text-right">
-        {{ displayDate(selectedPlace.startAt) }} — <br />{{
-          displayDate(selectedPlace.endAt)
-        }}
-      </p>
-      <p>{{ selectedPlace.description }}</p>
+      <template v-if="selectedId">
+        <p class="hidden md:block sm:text-start mb-4 text-right">
+          {{ displayDate(selectedPlace.startAt) }} — <br />{{
+            displayDate(selectedPlace.endAt)
+          }}
+        </p>
+        <p>{{ selectedPlace.description }}</p>
+      </template>
     </div>
   </div>
 </template>

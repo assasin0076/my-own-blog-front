@@ -2,7 +2,7 @@ export type TRawProjectItem = {
   id: string;
   label: string;
   ref: string;
-  desc: string;
+  description: string;
   tags: string;
   viewLink: string;
   repoLink: string;

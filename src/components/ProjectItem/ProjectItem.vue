@@ -28,7 +28,9 @@ defineProps({
       </a>
       <tippy-welder v-if="withPreview">
         <template #activator>
-          <a class="hover:text-gray-700 transition-colors" :href="item.viewLink">view</a>
+          <a class="hover:text-gray-700 transition-colors" :href="item.viewLink"
+            >view</a
+          >
         </template>
         <template #tooltip>
           <iframe
@@ -41,7 +43,8 @@ defineProps({
         v-else
         class="hover:text-gray-700 transition-colors"
         :href="item.viewLink"
-      >view</a>
+        >view</a
+      >
     </div>
     <div class="flex mb-2">
       <router-link :to="item.ref">{{ item.label }}</router-link>
@@ -54,7 +57,7 @@ defineProps({
         {{ tag }}
       </div>
     </div>
-    <div>{{ item.desc }}</div>
+    <div>{{ item.description }}</div>
   </div>
 </template>
 
