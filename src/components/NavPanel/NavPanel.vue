@@ -16,11 +16,6 @@ const navs = [
     label: "Проекты",
     id: nanoid(),
   },
-  {
-    to: "memes",
-    label: "Мемчики",
-    id: nanoid(),
-  },
 ];
 
 const alertsComposable = useAlerts();
