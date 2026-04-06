@@ -60,7 +60,7 @@ const sendGreetingAlert = () => {
 
 onMounted(() => {
   sendGreetingAlert();
-  Cookies.set('lastVisit', new Date(), { expires: 365 });
+  Cookies.set('lastVisit', new Date().toISOString(), { expires: 365 });
 });
 </script>
 

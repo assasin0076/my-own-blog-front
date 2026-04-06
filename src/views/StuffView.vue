@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import ProjectItem from '@/components/ProjectItem/ProjectItem';
+import ProjectItem from '@/components/ProjectItem/ProjectItem.vue';
 import { computed } from 'vue';
 import Loading from '@/components/Loading/Loading.vue';
 import { useAxios } from '@vueuse/integrations/useAxios';
