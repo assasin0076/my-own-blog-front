@@ -1,59 +1,56 @@
 <script setup lang="ts">
-import { useAlerts } from "@/composables/AlertComposable";
-import { onMounted, ref } from "vue";
-import AlertComponent from "@/components/AlertComponent/AlertComponent.vue";
-import Cookies from "js-cookie";
-import { getDiffInMinutes } from "@/helpers/dateHelpers";
-import getRandomArrayElement from "@/helpers/getRandomArrayElement";
+import { useAlerts } from '@/composables/AlertComposable';
+import { onMounted, ref } from 'vue';
+import AlertComponent from '@/components/AlertComponent/AlertComponent.vue';
+import Cookies from 'js-cookie';
+import { getDiffInMinutes } from '@/helpers/dateHelpers';
+import getRandomArrayElement from '@/helpers/getRandomArrayElement';
 
 const alerts = useAlerts();
 
 const firstVisitMessages = [
-  "Ого! Новенький!",
-  "Не видел здесь тебя раньше.",
-  "Рад видеть новые лица.",
+  'Ого! Новенький!',
+  'Не видел здесь тебя раньше.',
+  'Рад видеть новые лица.',
 ];
 const notFarAgoMessages = [
-  "Не бойся нажимать на кнопки.",
-  "Зацени какой крутой логотип.",
-  "Какой хороший день!",
+  'Не бойся нажимать на кнопки.',
+  'Зацени какой крутой логотип.',
+  'Какой хороший день!',
 ];
 const farAgoMessages = [
-  "Давно тебя не видел.",
-  "Чувствуй себя как дома.",
-  "Снова ты. Располагайся!",
+  'Давно тебя не видел.',
+  'Чувствуй себя как дома.',
+  'Снова ты. Располагайся!',
 ];
 
 const alertsList = ref(alerts.alerts);
 
 const alertFirstTimeVisit = () => {
   alerts.pushAlert({
-    type: "greeting",
+    type: 'greeting',
     text: getRandomArrayElement(firstVisitMessages),
   });
 };
 const alertNotFarAgoVisit = () => {
   alerts.pushAlert({
-    type: "greeting",
+    type: 'greeting',
     text: getRandomArrayElement(notFarAgoMessages),
   });
 };
 
 const alertFarAgoVisit = () => {
   alerts.pushAlert({
-    type: "greeting",
+    type: 'greeting',
     text: getRandomArrayElement(farAgoMessages),
   });
 };
 
 const sendGreetingAlert = () => {
-  const lastVisit = Cookies.get("lastVisit");
+  const lastVisit = Cookies.get('lastVisit');
   const currentDate = new Date();
   if (!lastVisit) return alertFirstTimeVisit();
-  const minutesFromLastVisit = getDiffInMinutes(
-    currentDate,
-    new Date(lastVisit)
-  );
+  const minutesFromLastVisit = getDiffInMinutes(currentDate, new Date(lastVisit));
   const hoursFromLastVisit = minutesFromLastVisit / 60;
   const daysFromLastVisit = hoursFromLastVisit / 24;
   if (minutesFromLastVisit < 10) return;
@@ -63,7 +60,7 @@ const sendGreetingAlert = () => {
 
 onMounted(() => {
   sendGreetingAlert();
-  Cookies.set("lastVisit", new Date(), { expires: 365 });
+  Cookies.set('lastVisit', new Date(), { expires: 365 });
 });
 </script>
 

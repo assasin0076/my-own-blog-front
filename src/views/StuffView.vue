@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import ProjectItem from "@/components/ProjectItem/ProjectItem.vue";
-import { onBeforeMount, ref } from "vue";
-import { getStuff } from "@/services/stuffService";
-import type { TProjectItem } from "@/types/TProjectItem";
+import ProjectItem from '@/components/ProjectItem/ProjectItem';
+import { onBeforeMount, ref } from 'vue';
+import { getStuff } from '@/services/stuffService';
+import type { TProjectItem } from '@/types/TProjectItem';
 
 const items = ref<TProjectItem[]>();
 

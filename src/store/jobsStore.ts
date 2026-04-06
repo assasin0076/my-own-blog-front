@@ -1,7 +1,7 @@
-import { defineStore } from "pinia";
-import type { TJob } from "@/types/TJob";
+import { defineStore } from 'pinia';
+import type { TJob } from '@/types/TJob';
 
-export const useJobsStore = defineStore("jobs", {
+export const useJobsStore = defineStore('jobs', {
   state: (): { jobs: TJob[]; selectedId: null | number } => {
     return {
       jobs: [],

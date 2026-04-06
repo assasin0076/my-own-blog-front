@@ -19,10 +19,10 @@
 </template>
 
 <script lang="ts" setup>
-import alertKaomojies from "../../dictionaries/alertKaomojies";
-import type AlertInterface from "../../interfaces/AlertInterface";
-import { onMounted, ref, defineProps } from "vue";
-import { useAlerts } from "../../composables/AlertComposable";
+import alertKaomojies from '../../dictionaries/alertKaomojies';
+import type AlertInterface from '../../interfaces/AlertInterface';
+import { onMounted, ref, defineProps } from 'vue';
+import { useAlerts } from '../../composables/AlertComposable';
 
 interface Props {
   alert: AlertInterface;

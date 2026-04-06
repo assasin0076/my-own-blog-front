@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import NavPanel from "./components/NavPanel/NavPanel.vue";
-import AlertsList from "@/components/AlertsList/AlertsList.vue";
+import NavPanel from './components/NavPanel/NavPanel.vue';
+import AlertsList from '@/components/AlertsList/AlertsList.vue';
 </script>
 
 <template>

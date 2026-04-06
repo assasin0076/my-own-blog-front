@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref } from 'vue';
 
 const isHoveredLeft = ref(false);
 const onHoverLeft = () => {
@@ -9,7 +9,7 @@ const onUnHoverLeft = () => {
   isHoveredLeft.value = false;
 };
 const widthOnHoverLeft = computed(() => {
-  return isHoveredLeft.value ? "w-[calc(50%+6px)]" : "w-0";
+  return isHoveredLeft.value ? 'w-[calc(50%+6px)]' : 'w-0';
 });
 
 const isHoveredRight = ref(false);
@@ -20,7 +20,7 @@ const onUnHoverRight = () => {
   isHoveredRight.value = false;
 };
 const widthOnHoverRight = computed(() => {
-  return isHoveredRight.value ? "w-[calc(50%+6px)]" : "w-0";
+  return isHoveredRight.value ? 'w-[calc(50%+6px)]' : 'w-0';
 });
 </script>
 

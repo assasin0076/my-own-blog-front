@@ -1,4 +1,4 @@
-import type { AlertText, AlertType } from "@/types/AlertTypes";
+import type { AlertText, AlertType } from '@/types/AlertTypes';
 
 interface AlertInterface {
   id: string;

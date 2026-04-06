@@ -8,4 +8,4 @@ export type TRawProjectItem = {
   repoLink: string;
 };
 
-export type TProjectItem = Omit<TRawProjectItem, "tags"> & { tags: string[] };
+export type TProjectItem = Omit<TRawProjectItem, 'tags'> & { tags: string[] };

@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { computed, type Ref, ref } from "vue";
-import { useJobsStore } from "@/store/jobsStore";
-import { storeToRefs } from "pinia";
-import type { TJob } from "@/types/TJob";
+import { computed } from 'vue';
+import { useJobsStore } from '@/store/jobsStore';
+import { storeToRefs } from 'pinia';
 
-const startProgrammingDate = new Date("2020-08-01");
+const startProgrammingDate = new Date('2020-08-01');
 const todayDate = new Date();
 const monthsDifference =
   todayDate.getMonth() -
@@ -51,23 +50,20 @@ const selectedPlace = computed(
 
 const displayDate = (rawDate: string) => {
   const months = {
-    "01": "Январь",
-    "02": "Февраль",
-    "03": "Март",
-    "04": "Апрель",
-    "05": "Май",
-    "06": "Июнь",
-    "07": "Июль",
-    "08": "Август",
-    "09": "Сентябрь",
-    "10": "Октябрь",
-    "11": "Ноябрь",
-    "12": "Декабрь",
+    '01': 'Январь',
+    '02': 'Февраль',
+    '03': 'Март',
+    '04': 'Апрель',
+    '05': 'Май',
+    '06': 'Июнь',
+    '07': 'Июль',
+    '08': 'Август',
+    '09': 'Сентябрь',
+    '10': 'Октябрь',
+    '11': 'Ноябрь',
+    '12': 'Декабрь',
   };
-  const [year, monthNumber] = rawDate.split("-") as [
-    string,
-    keyof typeof months
-  ];
+  const [year, monthNumber] = rawDate.split('-') as [string, keyof typeof months];
   return `${months[monthNumber]} ${year}`;
 };
 </script>
@@ -106,9 +102,7 @@ const displayDate = (rawDate: string) => {
     >
       <template v-if="selectedId">
         <p class="hidden md:block sm:text-start mb-4 text-right">
-          {{ displayDate(selectedPlace.startAt) }} — <br />{{
-            displayDate(selectedPlace.endAt)
-          }}
+          {{ displayDate(selectedPlace.startAt) }} — <br />{{ displayDate(selectedPlace.endAt) }}
         </p>
         <p>{{ selectedPlace.description }}</p>
       </template>

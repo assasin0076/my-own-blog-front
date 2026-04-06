@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import tippy from "tippy.js";
-import type { Placement as ITippyPlacement } from "tippy.js";
-import { computed, onBeforeUnmount, onMounted, ref, useSlots } from "vue";
-import type { PropType } from "vue";
+import tippy from 'tippy.js';
+import type { Placement as ITippyPlacement } from 'tippy.js';
+import { computed, onBeforeUnmount, onMounted, ref, useSlots } from 'vue';
+import type { PropType } from 'vue';
 
 const props = defineProps({
   placement: {
     type: String as PropType<ITippyPlacement>,
-    default: "bottom-start",
+    default: 'bottom-start',
   },
   content: {
     type: String,
-    default: "content",
+    default: 'content',
   },
 });
 const slots = useSlots();
@@ -19,7 +19,7 @@ const slots = useSlots();
 const content = ref();
 const activator = ref();
 
-let instance = ref();
+const instance = ref();
 
 const popoverContent = computed(() => {
   if (slots.tooltip !== undefined) {
@@ -34,7 +34,7 @@ onMounted(() => {
     allowHTML: !!slots.tooltip,
     interactive: true,
     ignoreAttributes: true,
-    theme: "popper-welder",
+    theme: 'popper-welder',
   });
 });
 onBeforeUnmount(() => {
@@ -55,7 +55,7 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss">
-.tippy-box[data-theme~="popper-welder"] {
+.tippy-box[data-theme~='popper-welder'] {
   .tippy-content {
     @apply py-1 pr-[7px] pl-1.5 rounded-sm flex flex-col text-left text-sm leading-4 text-white bg-gray-100;
   }

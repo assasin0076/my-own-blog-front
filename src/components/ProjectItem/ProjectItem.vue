@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import type { TProjectItem } from "@/types/TProjectItem";
-import type { PropType } from "vue";
-import TippyWelder from "@/components/TippyWelder/TippyWelder.vue";
+import type { TProjectItem } from '@/types/TProjectItem';
+import type { PropType } from 'vue';
+import TippyWelder from '@/components/TippyWelder/TippyWelder.vue';
 
 defineProps({
   item: {
@@ -16,21 +16,12 @@ defineProps({
 </script>
 
 <template>
-  <div
-    class="mb-8 last:mb-0 hover:text-gray-700 transition-colors w-full relative"
-  >
+  <div class="mb-8 last:mb-0 hover:text-gray-700 transition-colors w-full relative">
     <div class="absolute right-0 top-0 flex items-center">
-      <a
-        class="mr-2 hover:text-gray-700 transition-colors"
-        :href="item.repoLink"
-      >
-        code
-      </a>
+      <a class="mr-2 hover:text-gray-700 transition-colors" :href="item.repoLink"> code </a>
       <tippy-welder v-if="withPreview">
         <template #activator>
-          <a class="hover:text-gray-700 transition-colors" :href="item.viewLink"
-            >view</a
-          >
+          <a class="hover:text-gray-700 transition-colors" :href="item.viewLink">view</a>
         </template>
         <template #tooltip>
           <iframe
@@ -39,12 +30,7 @@ defineProps({
           ></iframe>
         </template>
       </tippy-welder>
-      <a
-        v-else
-        class="hover:text-gray-700 transition-colors"
-        :href="item.viewLink"
-        >view</a
-      >
+      <a v-else class="hover:text-gray-700 transition-colors" :href="item.viewLink">view</a>
     </div>
     <div class="flex mb-2">
       <router-link :to="item.ref">{{ item.label }}</router-link>

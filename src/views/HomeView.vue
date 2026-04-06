@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import WorkPlaces from "@/components/WorkPlaces/WorkPlaces.vue";
-import { onBeforeMount } from "vue";
-import { useJobsStore } from "@/store/jobsStore";
-import { getJobs } from "@/services/jobsService";
-import type { TJob } from "@/types/TJob";
+import WorkPlaces from '@/components/WorkPlaces/WorkPlaces.vue';
+import { onBeforeMount } from 'vue';
+import { useJobsStore } from '@/store/jobsStore';
+import { getJobs } from '@/services/jobsService';
+import type { TJob } from '@/types/TJob';
 
 const jobsStore = useJobsStore();
 

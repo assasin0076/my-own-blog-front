@@ -1,6 +1,6 @@
-import { ref } from "vue";
-import { nanoid } from "nanoid";
-import type { AlertText, AlertType } from "@/types/AlertTypes";
+import { ref } from 'vue';
+import { nanoid } from 'nanoid';
+import type { AlertText, AlertType } from '@/types/AlertTypes';
 
 interface Alert {
   id: string;
@@ -18,7 +18,7 @@ export function useAlerts(): any {
     type: AlertType;
     text: AlertText;
   }
-  function pushAlert({ type, text = "" }: PushProps): void {
+  function pushAlert({ type, text = '' }: PushProps): void {
     alerts.value.push({ id: nanoid(), text, type });
   }
   function removeAlert(id: string): void {

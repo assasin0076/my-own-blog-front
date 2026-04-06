@@ -1,5 +1,5 @@
 export default {
-  error: "ಠ_ಠ",
-  notification: "( ˙▿˙ )",
-  greeting: "(◕‿◕)♡",
+  error: 'ಠ_ಠ',
+  notification: '( ˙▿˙ )',
+  greeting: '(◕‿◕)♡',
 };
