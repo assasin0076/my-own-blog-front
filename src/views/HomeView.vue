@@ -1,13 +1,8 @@
 <script lang="ts" setup>
 import WorkPlaces from '@/components/WorkPlaces/WorkPlaces.vue';
-import { onBeforeMount } from 'vue';
-import { useJobsStore } from '@/store/jobsStore';
-import type { TJob } from '@/types/TJob';
 import Loading from '@/components/Loading/Loading.vue';
 import { useAxios } from '@vueuse/integrations/useAxios';
 import api from '@/services/api.ts';
-
-const jobsStore = useJobsStore();
 
 const { data, isFinished } = useAxios('/jobs', api);
 </script>
@@ -19,10 +14,10 @@ const { data, isFinished } = useAxios('/jobs', api);
         <p>Я Виктор, разработчик фронтенда.</p>
         <p>В работе я использую в основном фреймворк Vue.js.</p>
       </section>
-      <div class="h-[200px]">
-        <loading v-if="!isFinished" />
-        <work-places v-else :work-places="data" />
+      <div v-if="!isFinished" class="h-[200px]">
+        <loading />
       </div>
+      <work-places v-else :work-places="data" />
     </div>
   </div>
 </template>

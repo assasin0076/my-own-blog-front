@@ -41,9 +41,9 @@ const isMobileMenuActive = ref(false);
 </script>
 
 <template>
-  <header class="sm:hidden w-full p-4 mb-10 sticky top-0 left-0 bg-white">
+  <header class="sm:hidden w-full px-16 py-4 mb-10 sticky top-0 left-0 bg-white">
     <nav class="flex h-12 w-full justify-center items-center relative">
-      <router-link to="/" class="absolute left-0 ml-12 w-12 h-12">
+      <router-link to="/" class="absolute left-0 w-12 h-12">
         <img class="w-12 h-12" src="/src/assets/logo.png" alt="#" />
       </router-link>
       <ul class="flex">
@@ -77,7 +77,7 @@ const isMobileMenuActive = ref(false);
   </header>
   <span
     @click="isMobileMenuActive = true"
-    class="hidden sm:flex fixed bottom-12 right-12 border border-gray-700 leading-none flex items-center justify-center rounded-full bg-white w-10 h-10"
+    class="hidden sm:flex fixed bottom-12 right-12 border border-gray-700 leading-none items-center justify-center rounded-full bg-white w-10 h-10"
   >
     O
   </span>
@@ -89,7 +89,7 @@ const isMobileMenuActive = ref(false);
       <router-link to="/" class="mb-5" @click="isMobileMenuActive = false">
         <img class="w-12 h-12" src="/src/assets/logo.png" alt="#" />
       </router-link>
-      <ul class="py-5 border-y border-gray-700 mb-10 min-w-[200px] mb-auto">
+      <ul class="py-5 border-y border-gray-700 mb-10 min-w-[200px]">
         <li
           v-for="nav in navs"
           :key="nav.id"

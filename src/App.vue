@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import NavPanel from './components/NavPanel/NavPanel.vue';
 import AlertsList from '@/components/AlertsList/AlertsList.vue';
+import LayoutFooter from '@/components/LayoutFooter/LayoutFooter.vue';
 </script>
 
 <template>
-  <nav-panel />
+  <div class="flex flex-col min-h-screen">
+    <nav-panel />
+    <main class="flex-1">
+      <RouterView />
+    </main>
+    <LayoutFooter />
+  </div>
   <AlertsList />
-  <RouterView />
 </template>
 
 <style lang="scss"></style>
