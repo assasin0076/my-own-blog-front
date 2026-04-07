@@ -79,7 +79,7 @@ const isMobileMenuActive = ref(false);
     @click="isMobileMenuActive = true"
     class="hidden sm:flex fixed bottom-12 right-12 border border-gray-700 leading-none items-center justify-center rounded-full bg-white w-10 h-10"
   >
-    O
+    ◯
   </span>
   <div v-if="isMobileMenuActive" class="fixed w-full h-full z-10 p-4 pb-10 bg-white">
     <button @click="isMobileMenuActive = false" class="absolute top-0 right-0 h-14 w-14 text-2xl">
